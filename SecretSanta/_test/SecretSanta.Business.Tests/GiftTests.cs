@@ -37,9 +37,7 @@ namespace SecretSanta.Business.Tests
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         [DataRow("", "test description", "www.url.com")]
-        //[DataRow("untitled title", "", "www.url.com")]
-        //[DataRow("untitled title", "test description", "")]
-        public void Create_PropertiesWhiteSpace_ThrowArgumentException(string title, string description, string url)
+        public void Create_TitleWhiteSpace_ThrowArgumentException(string title, string description, string url)
         {
             // Arrange
             // Act
@@ -50,13 +48,14 @@ namespace SecretSanta.Business.Tests
                 url,
                 new User());
             // Assert
+            // handled from method attributes
         }
-        
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         [DataRow(null, "test description", "www.url.com")]
-        //[DataRow("untitled title", null, "www.url.com")]
-        //[DataRow("untitled title", "test description", null)]
+        [DataRow("untitled title", null, "www.url.com")]
+        [DataRow("untitled title", "test description", null)]
         public void Create_PropertiesAreNull_ThrowArgumentNullException(string title, string description, string url)
         {
             // Arrange
@@ -68,14 +67,7 @@ namespace SecretSanta.Business.Tests
                 url,
                 new User());
             // Assert
+            // handled from method attributes
         }
-
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentNullException))]
-        //public void Properties_AssignNull_ThrowArgumentNullException()
-        //{
-        //    var gift = new Gift(0, "", "", "", new User());
-        //    gift.Description = null;
-        //}
     }
 }

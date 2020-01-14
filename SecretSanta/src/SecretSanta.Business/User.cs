@@ -6,8 +6,8 @@ namespace SecretSanta.Business
 	public class User
 	{
 		#region Fields
-		private string _FirstName;
-		private string _LastName;
+		private string _FirstName = "";
+		private string _LastName = "";
 		#endregion
 
 		#region Properties
@@ -33,7 +33,7 @@ namespace SecretSanta.Business
 			LastName = lname;
 			Gifts = gifts ?? throw new ArgumentNullException(nameof(gifts));
 		}
-		public User() : this(1, "test first name", "test last name", new List<Gift>())
+		public User() : this(0, "<default_non-null_firstname>", "<default_non-null_lastname>", new List<Gift>())
 		{}
 		#endregion
 

@@ -5,9 +5,9 @@ namespace SecretSanta.Business
 	public class Gift
 	{
 		#region Fields
-		private string _Title;
-		private string _Description;
-		private string _Url;
+		private string _Title = "";
+		private string _Description = "";
+		private string _Url = "";
 		#endregion
 
 
@@ -41,7 +41,7 @@ namespace SecretSanta.Business
 			Url = url;
 			User = user ?? throw new ArgumentNullException(nameof(user));
 		}
-		public Gift() : this(0, "test title", "", "", new User())
+		public Gift() : this(0, "<default_non-null_title>", "", "", new User())
 		{}
 		#endregion
 
